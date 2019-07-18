@@ -1,0 +1,22 @@
+{
+  "name": "ultrannode",
+  "version": "1.0.0",
+  "description": "Project Node Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "koa": "^2.7.0",
+    "mysql": "^2.17.1",
+    "socket.io": "^1.0",
+    "websocket": "^1.0.29"
+  }
+}
