@@ -52,7 +52,7 @@ socket.on("connection",socket => {
         let consultation = new Consultation(data.title,data.description,data.date,data.time)
         databaseUltran.insertConsultation(consultation,(id) => {
             consultation.setId(id)
-            socket.emit("onInsertConsultation",Consultation.toObjectFormat(consultation))
+            socket.broadcast.emit("onInsertConsultation",Consultation.toObjectFormat(consultation))
         })
     })
 
@@ -61,14 +61,14 @@ socket.on("connection",socket => {
         let consultation = new Consultation(data.title,data.description,data.date,data.time)
         consultation.setId(data.id)
         databaseUltran.updateConsultation(consultation,(result) => {
-            socket.emit("onUpdateConsultation",Consultation.toObjectFormat(consultation))
+            socket.broadcast.emit("onUpdateConsultation",Consultation.toObjectFormat(consultation))
         })
     })
 
     socket.on("deleteConsultation",function(data){
         console.log(data)
         databaseUltran.deleteConsultation(data.id,(result) => {
-            socket.emit("onDeleteConsultation",data)
+            socket.broadcast.emit("onDeleteConsultation",data)
         })
     })
     
