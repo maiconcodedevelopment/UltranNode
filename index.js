@@ -52,12 +52,12 @@ socket.on("connection",socket => {
         let consultation = new Consultation(data.title,data.description,data.date,data.time)
         databaseUltran.insertConsultation(consultation,(id) => {
             consultation.setId(id)
-            socket.broadcast.emit("onInsertConsultation",Consultation.toObjectFormat(consultation))
+            socket.broadcast.to(socket.id).emit("onInsertConsultation",Consultation.toObjectFormat(consultation))
         })
     })
 
     socket.on("updateConsultation",function(data){
-
+        console.log(data)
         let consultation = new Consultation(data.title,data.description,data.date,data.time)
         consultation.setId(data.id)
         databaseUltran.updateConsultation(consultation,(result) => {
