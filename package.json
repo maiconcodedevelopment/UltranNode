@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "koa": "^2.7.0",
     "mysql": "^2.17.1",
-    "socket.io": "^1.0",
+    "socket.io": "^2.4",
     "websocket": "^1.0.29"
   }
 }
